@@ -28,7 +28,7 @@ export const Intro = () => {
             </BackgroundImage>
         </SquareWrapper>
         <TextWrapper>
-            <Title style={{ paddingBottom: '10%' }}>{copy.moto}</Title>
+            <Title style={{ paddingBottom: '15%' }}>{copy.moto}</Title>
         </TextWrapper>
     </IntoContainer>
 }
