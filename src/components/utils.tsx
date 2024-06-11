@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 export const Title = styled.span`
     color: ${props => props.color ? props.color : colors.white};
-    font-size: 2.5rem;
+    font-size: 3rem;
     display: inline-block;
+    white-space: pre-line;
+    text-align: center;
+
 `

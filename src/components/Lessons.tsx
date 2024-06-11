@@ -71,7 +71,7 @@ const LessonsBlock = styled.div<{ index: number }>`
     background-color: ${props => props.index % 2 === 0 ? colors.white : colors.darkViolet};
     justify-content: center;
     align-items: center;
-    padding: 80px 0px;
+    padding: 80px 10px;
 `
 
 const DescriptionWrapper = styled.div`

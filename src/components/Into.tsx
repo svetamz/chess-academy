@@ -1,58 +1,34 @@
-import styled from "styled-components";
-import {copy} from "../text.ts";
-import {colors} from "./colors.ts";
-import {range} from "lodash";
-import {Title} from "./utils.tsx";
-let sqaures = range(20);
+import styled, { keyframes } from "styled-components";
+import { copy } from "../text.ts";
+import { colors } from "./colors.ts";
+import { range } from "lodash";
+import { Title } from "./utils.tsx";
+import image from "../images/image2.webp";
+import chess from "../images/chess.png";
+import chess2 from "../images/chess2.png";
+import chess3 from "../images/chess3.png";
+
+
+
 
 export const Intro = () => {
     return <IntoContainer>
         <SquareWrapper>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s+1}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s+1}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s+1}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s+1}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s+1}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s+1}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s}></Square>)}
-            </SquareRow>
-            <SquareRow>
-                {sqaures.map(s => <Square square={s+1}></Square>)}
-            </SquareRow>
+            <BackgroundImage>
+                <img src={image} alt="background" />
+                <ChessContainerRight>
+                    <img src={chess} />
+                </ChessContainerRight>
+                <ChessContainerMiddle>
+                    <img src={chess2} />
+                </ChessContainerMiddle>
+                <ChessContainerTop>
+                    <img src={chess3} />
+                </ChessContainerTop>
+            </BackgroundImage>
         </SquareWrapper>
         <TextWrapper>
-            <Title>{copy.moto}</Title>
+            <Title style={{ paddingBottom: '10%' }}>{copy.moto}</Title>
         </TextWrapper>
     </IntoContainer>
 }
@@ -60,7 +36,6 @@ export const Intro = () => {
 const IntoContainer = styled.div`
     width: 100vw;
     height: 100vh;
-    background-color: ${colors.violet};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,18 +54,6 @@ const SquareWrapper = styled.div`
     flex-direction: column;
 `
 
-const SquareRow = styled.div`
-    display: flex;
-    flex: 1
-`
-
-const Square = styled.div<{square: number}>`
-    min-width: 200px;
-    min-height: 200px;
-    background-color: ${props => props.square % 2 === 0 ? '#e6e6e6' : colors.violet};
-    flex: 1;
-    display: flex
-`
 
 const TextWrapper = styled.div`
     display: inline-flex;
@@ -98,7 +61,66 @@ const TextWrapper = styled.div`
     z-index: 1;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(49, 2, 100, 0.95);
+    //background-color: rgba(49, 2, 100, 0.95);
     align-items: center;
     justify-content: center;
+`
+
+const BackgroundImage = styled.div`
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #010010;
+    img{
+        object-fit: cover;
+        object-position: center;
+        width: 300%;
+        }
+`;
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+const ChessContainerRight = styled.div`
+    width: 50px;
+    img{
+        width: 50px;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 15%;
+        right: 10%;
+        animation: ${rotate} 6s linear infinite;
+        }
+`
+const ChessContainerMiddle = styled.div`
+    width: 20px;
+    img{
+        width: 50px;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 55%;
+        left: 5%;
+        animation: ${rotate} 4s linear infinite;
+        }
+`
+const ChessContainerTop = styled.div`
+    width: 20px;
+    img{
+        width: 50px;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        animation: ${rotate} 10s linear infinite;
+        }
 `

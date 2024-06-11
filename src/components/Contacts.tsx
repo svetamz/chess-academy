@@ -10,7 +10,7 @@ export const Contacts = () => {
         </div>
         <ContactsInfo>
             <div style={{display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '10px'}}>Івано-Франківськ, вул. Січових Стрільців 5</div>
-            <div style={{display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '20px'}}>Номер телефону: 380957139594</div>
+            <div style={{display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '20px'}}>Номер телефону: +380957139594</div>
             <div style={{display: 'flex', justifyContent: 'center', width: '100%'}}>
                 <a href='https://www.instagram.com/kids.chess.academy.if' target='_blank'>
                     <FaInstagramSquare color={colors.darkViolet} size={40} style={{marginRight: '10px'}}></FaInstagramSquare>

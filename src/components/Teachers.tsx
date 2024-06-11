@@ -1,21 +1,23 @@
 import styled from "styled-components";
-import {copy} from "../text.ts";
-import {colors} from "./colors.ts";
-import {Title} from "./utils.tsx";
+import { copy } from "../text.ts";
+import { colors } from "./colors.ts";
+import { Title } from "./utils.tsx";
 
 export const Teachers = () => {
     return (
         <TrainerWrppaer>
-            <div style={{display: "flex", justifyContent: 'center'}}>
+            <div style={{ display: "flex", justifyContent: 'center' }}>
                 <Title color={colors.white}>Наші тренера</Title>
             </div>
-            <div style={{display: "flex"}}>
+            <div style={{ display: "flex" }}>
                 <TrainerWrapper>
                     <Trainer>
                         <TrainerPhotoWrapper>
-                            <TrainerPhoto></TrainerPhoto>
+                            <TrainerPhoto>
+                                <img src={copy.trainers[0].image}></img>
+                            </TrainerPhoto>
                         </TrainerPhotoWrapper>
-                        <TrainerTitle>{copy.trainers[0].name} &#183; {copy.trainers[0].title}</TrainerTitle>
+                        <TrainerTitle>{copy.trainers[0].name} <p style={{margin:'0px'}}>{copy.trainers[0].title}</p></TrainerTitle>
                         <Description>{copy.trainers[0].description}</Description>
                         <Achievements>
                             {copy.trainers[0].items.map(i => (<span>&#183; {i}</span>))}
@@ -25,9 +27,11 @@ export const Teachers = () => {
                 <TrainerWrapper>
                     <Trainer>
                         <TrainerPhotoWrapper>
-                            <TrainerPhoto></TrainerPhoto>
+                            <TrainerPhoto>
+                                <img src={copy.trainers[1].image}></img>
+                            </TrainerPhoto>
                         </TrainerPhotoWrapper>
-                        <TrainerTitle>{copy.trainers[1].name} &#183; {copy.trainers[1].title}</TrainerTitle>
+                        <TrainerTitle>{copy.trainers[1].name} <p style={{margin:'0px'}}> {copy.trainers[1].title}</p></TrainerTitle>
                         <Description>{copy.trainers[1].description}</Description>
                         <Achievements>
                             {copy.trainers[1].items.map(i => (<span>&#183; {i}</span>))}
@@ -54,10 +58,16 @@ const TrainerPhotoWrapper = styled.div`
 
 const TrainerPhoto = styled.div`
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    background-color: ${colors.darkViolet};
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        background-position: center;
+        border-radius: 50%;
+    }
 `
 
 const TrainerWrapper = styled.div`
@@ -67,8 +77,9 @@ const TrainerWrapper = styled.div`
 
 const Trainer = styled.div`
     display: flex;
+    height: 100%;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     border: 1px solid ${colors.white};
     background-color: ${colors.violet};
